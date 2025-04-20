@@ -2,6 +2,7 @@ return {
 
 {
         'tpope/vim-fugitive',
+        enabled = true,
         lazy = true,
         cmd = 'Git',
         keys = {
@@ -15,6 +16,7 @@ return {
 
 {
         'airblade/vim-gitgutter',
+        enabled = true,
         lazy = false,
         -- turn off default keymaps
         init = function()
