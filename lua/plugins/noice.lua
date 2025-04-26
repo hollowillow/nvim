@@ -12,6 +12,7 @@ return {
 -- optional dependencies
 {
         'rcarriga/nvim-notify',
+        enabled = true,
         lazy = true,
         keys = {{mode = 'n','<leader>fn','<cmd>Telescope notify<cr>',desc = 'Telescope notify'}},
 },
