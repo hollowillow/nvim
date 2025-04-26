@@ -2,22 +2,15 @@ return {
 
 {
         "nvim-lualine/lualine.nvim",
+        enabled = true,
+        lazy = false,
         opts = {
                 sections = {
                         lualine_a = {'mode'},
                         lualine_b = {'branch', 'diff', 'diagnostics'},
-                        lualine_c = {'filename'},
+                        lualine_c = {'filename',},
                         lualine_x = {'filetype', 'searchcount',},
-                        lualine_y = {'progress',
-                        -- show wordcount for markdown files
-                                function()
-                                        if vim.bo.filetype == 'markdown' then
-                                                return "Words: " .. vim.fn.wordcount().words
-                                        else
-                                                return ''
-                                end
-                        end
-                        },
+                        lualine_y = {'progress', markdown_wordcount,},
                         lualine_z = {'location'}
                 },
                 extensions = {
@@ -30,6 +23,6 @@ return {
 },
 
 -- optional dependencies
-{'nvim-tree/nvim-web-devicons', lazy = true,},
+{'nvim-tree/nvim-web-devicons', enabled = true, lazy = true,},
 
 }
