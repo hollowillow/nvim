@@ -1,18 +1,20 @@
 return {
 
 {
-'ThePrimeagen/vim-be-good',
-config = function()
-        require("vim-be-good")
-end,
+        'ThePrimeagen/vim-be-good',
+        enable = true,
+        lazy = true,
+        cmd = "VimBeGood",
 },
 
 {
-"m4xshen/hardtime.nvim",
-dependencies = { "MunifTanjim/nui.nvim" },
-config = function()
-        require("hardtime").setup({})
-end,
+        "m4xshen/hardtime.nvim",
+        enable = true,
+        lazy = false,
+        opts = {},
 },
+
+-- dependencies
+{"MunifTanjim/nui.nvim", lazy = false,}
 
 }
