@@ -1,47 +1,11 @@
 return {
 
-{
-'echasnovski/mini.ai',
-version = '*',
-config = function()
-        require("mini.ai").setup()
-end,
-},
-{
-'echasnovski/mini.pairs',
-version = '*',
-config = function()
-        require("mini.pairs").setup()
-end,
-},
-{
-'echasnovski/mini.splitjoin',
-version = '*',
-config = function()
-        require("mini.splitjoin").setup()
-end,
-},
-{
-'echasnovski/mini.surround',
-version = '*',
-config = function()
-        require("mini.surround").setup()
-end,
-},
-{
-'echasnovski/mini.completion',
-version = '*',
-config = function()
-        require("mini.completion").setup()
-end,
-},
-{
-'echasnovski/mini.indentscope',
-version = '*',
-config = function()
-        require("mini.indentscope").setup()
-end,
-},
-
+{'echasnovski/mini.ai', enable = true, version = '*', opts = {},},
+{'echasnovski/mini.pairs', enable = true, version = '*', opts = {},},
+{'echasnovski/mini.splitjoin', enable = true, version = '*', opts = {},},
+{'echasnovski/mini.surround', enable = true, version = '*', opts = {},},
+{'echasnovski/mini.completion', enable = true, version = '*', opts = {},},
+{'echasnovski/mini.indentscope', enable = true, version = '*', opts = {},},
+{'echasnovski/mini.comment', enable = true, version = '*', opts = {},},
 
 }
