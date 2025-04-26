@@ -2,7 +2,12 @@ return {
 
 {
         'akinsho/bufferline.nvim',
+        enabled = true,
         lazy = false,
+        keys = {
+                {mode = 'n','<leader>bn','<cmd>enew<cr>',desc = 'bdelete %',},
+                {mode = 'n','<leader>bd','<cmd>bdelete %<cr>',desc = 'bdelete %',},
+        },
         opts = {
                 options = {
                         mode = "buffers",
@@ -12,13 +17,9 @@ return {
                         style_preset = 'minimal',
                 },
         },
-        keys = {
-                {mode = 'n','<leader>bd','<cmd>bdelete %<cr>',desc = 'bdelete %',},
-                {mode = 'n','<leader>bb','<cmd>Dashboard<cr>',desc = 'Dashboard',},
-        },
 },
 
 -- optional dependencies
-{'nvim-tree/nvim-web-devicons', lazy = true,},
+{'nvim-tree/nvim-web-devicons', enahle = true, lazy = true,},
 
 }
