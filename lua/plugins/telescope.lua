@@ -2,6 +2,8 @@ return {
 
 {
         'nvim-telescope/telescope.nvim',
+        enabled = true,
+        lazy = true,
         cmd = "Telescope",
         keys = {
                 {mode ='n','<leader>ff','<cmd>Telescope find_files<cr>',desc = 'Telescope find_files'},
@@ -18,6 +20,6 @@ return {
 {'nvim-lua/plenary.nvim', lazy = true,},
 
 -- optional dependencies
-{'nvim-telescope/telescope-symbols.nvim'},
+{'nvim-telescope/telescope-symbols.nvim', enabled = true, lazy = false,},
 
 }
