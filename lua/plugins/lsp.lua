@@ -1,39 +1,49 @@
 return {
 
 {
-'williamboman/mason.nvim',
-config = function()
-        require("mason").setup()
-end,
+        'williamboman/mason.nvim',
+        enabled = true,
+        lazy = true,
+        cmd = "Mason",
+        build = ":MasonUpdate",
+        opts = {},
 },
 
 
 {
-'williamboman/mason-lspconfig.nvim',
-config = function()
-        require("mason-lspconfig").setup({
-                -- lsp
-                ensure_installed = {"lua_ls", "bashls", "clangd", "marksman", "cssls", "html",},
-        })
-end,
+        'williamboman/mason-lspconfig.nvim',
+        enabled = true,
+        lazy = false,
+        opts = {
+                ensure_installed = {
+                        "lua_ls",
+                        "bashls",
+                        "clangd",
+                        "marksman",
+                        "cssls",
+                        "html",
+                }
+        },
 },
 
 {
-'neovim/nvim-lspconfig',
-config = function()
-        local lspconfig = require("lspconfig")
-        -- lsp 
-        lspconfig.lua_ls.setup({})
-        lspconfig.bashls.setup({})
-        lspconfig.clangd.setup({})
-        lspconfig.marksman.setup({})
-        lspconfig.cssls.setup({})
-        lspconfig.html.setup({})
-        -- keybinds
-        vim.keymap.set('n', '<leader>ll', vim.lsp.buf.hover, { desc = 'lsp hover' })
-        vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, { desc = 'lsp code action' })
-        vim.keymap.set('n', '<leader>ld', vim.lsp.buf.definition, { desc = 'lsp definition' })
-end,
+        'neovim/nvim-lspconfig',
+        enabled = true,
+        lazy = false,
+        keys = {
+                {mode = 'n','<leader>ll',vim.lsp.buf.hover,desc = 'LSP hover',},
+                {mode = 'n','<leader>la',vim.lsp.buf.code_action,desc = 'LSP code action',},
+                {mode = 'n','<leader>ld',vim.lsp.buf.definition,desc = 'LSP definition',},
+        },
+        opts = {},
+        config = function()
+                vim.lsp.enable('lua_ls')
+                vim.lsp.enable('bashls')
+                vim.lsp.enable('clangd')
+                vim.lsp.enable('marksman')
+                vim.lsp.enable('cssls')
+                vim.lsp.enable('html')
+        end,
 },
 
 }
