@@ -2,16 +2,18 @@ return {
 
 {
         "folke/zen-mode.nvim",
+        enabled = true,
+        lazy = true,
         cmd = 'ZenMode',
-        opts = {
-                twilight = {enabled = true},
-        },
-        keys = {
-                {mode = 'n','<leader>zm','<cmd>ZenMode<cr>',desc = 'ZenMode',},
-        }
+        keys = {{mode = 'n','<leader>zm','<cmd>ZenMode<cr>',desc = 'ZenMode',},},
+        opts = {twilight = {enabled = true},},
 },
 
 -- optional dependencies
-{'folke/twilight.nvim', lazy = true,},
+{
+        'folke/twilight.nvim',
+        enabled = true,
+        lazy = true,
+},
 
 }
