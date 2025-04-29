@@ -10,9 +10,10 @@ return {
                 {mode ='n','<leader>fg','<cmd>Telescope live_grep<cr>',desc = 'Telescope live_grep'},
                 {mode ='n','<leader>fb','<cmd>Telescope buffers<cr>',desc = 'Telescope buffers'},
                 {mode ='n','<leader>fh','<cmd>Telescope help_tags<cr>',desc = 'Telescope help_tags'},
-                {mode ='n','<leader>fr','<cmd>Telescope oldfiles<cr>',desc = 'Telescope help_tags'},
-                {mode ='n','<leader>fp','<cmd>Telescope builtin<cr>',desc = 'Telescope help_tags'},
-                {mode ='n', '<leader>fs', '<cmd>Telescope symbols<cr>', desc = 'Telescope help_tags'},
+                {mode ='n','<leader>fr','<cmd>Telescope oldfiles<cr>',desc = 'Telescope oldfiles'},
+                {mode ='n','<leader>fp','<cmd>Telescope builtin<cr>',desc = 'Telescope builtin'},
+                {mode ='n', '<leader>fs', '<cmd>Telescope symbols<cr>', desc = 'Telescope symbols'},
+                {mode ='n', '<leader>fc', '<cmd>Telescope colorscheme<cr>', desc = 'Telescope colorscheme'},
         }
 },
 
