@@ -31,9 +31,10 @@ return {
         enabled = true,
         lazy = false,
         keys = {
-                {mode = 'n','<leader>ll',vim.lsp.buf.hover,desc = 'LSP hover',},
-                {mode = 'n','<leader>la',vim.lsp.buf.code_action,desc = 'LSP code action',},
-                {mode = 'n','<leader>ld',vim.lsp.buf.definition,desc = 'LSP definition',},
+                {mode = 'n','ga',vim.lsp.buf.code_action,desc = 'LSP code action',},
+                {mode = 'n','gd',vim.lsp.buf.definition,desc = 'LSP definition',},
+                {mode = 'n','gr',vim.lsp.buf.references,desc = 'LSP references',},
+                {mode = 'n','<leader>lr',vim.lsp.buf.rename,desc = 'LSP rename',},
         },
         opts = {},
         config = function()
