@@ -29,6 +29,8 @@
     - [nvim-telescope/telescope-symbols.nvim](https://github.com/nvim-telescope/telescope-symbols.nvim)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
     - [folke/twilight.nvim](https://github.com/folke/twilight.nvim)
+- [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon/tree/harpoon2)
+- [ggandor/leap.nvim](https://github.com/ggandor/leap.nvim)
 
 ### TREESITTER, LSP, COMPLETION
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
@@ -44,6 +46,9 @@
 ### HABIT BUILDING
 - [ThePrimeagen/vim-be-good](https://github.com/ThePrimeagen/vim-be-good)
 - [m4xshen/hardtime.nvim](https://github.com/m4xshen/hardtime.nvim)
+
+### MARKDOWN EDITING
+- [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
 
 ## OTHER DEPENDENCIES
 - [TheZoraiz/ascii-image-converter](https://github.com/TheZoraiz/ascii-image-converter)
