@@ -1,5 +1,12 @@
-require("config.options")
-require("config.keymaps")
-require("config.autocmds")
-require("config.functions")
-require("config.lazy")
+-- minimal config
+require("minimal.config.options")
+require("minimal.config.keymaps")
+require("minimal.config.lazy")
+require("minimal.config.autocmds")
+
+-- old config
+-- require("default.config.options")
+-- require("default.config.keymaps")
+-- require("default.config.lazy")
+-- require("default.config.autocmds")
+-- require("default.config.functions")
