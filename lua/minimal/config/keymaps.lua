@@ -8,3 +8,15 @@ vim.keymap.set('n', '<C-S-h>', '<C-w><S-h>', { desc = "Move split left" })
 vim.keymap.set('n', '<C-S-j>', '<C-w><S-j>', { desc = "Move split down" })
 vim.keymap.set('n', '<C-S-k>', '<C-w><S-k>', { desc = "Move split up" })
 vim.keymap.set('n', '<C-S-l>', '<C-w><S-l>', { desc = "Move split right" })
+
+-- recenter
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Half page up' })
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Half page down' })
+
+-- save session
+local save_dir = "~/.local/share/nvim/sessions"
+vim.keymap.set('n', '<leader>s', ':mksession! ' .. save_dir .. '/default', { desc = 'Save sesion' })
+vim.keymap.set('n', '<leader>S', ':source ' .. save_dir .. '/default', { desc = 'Load session' })
+
+-- toggle boolean
+vim.keymap.set('n','gt','<cmd>ToggleBool true false<cr>',{desc='Toggle booleans'})
