@@ -1,41 +1,34 @@
 return {
 
+-- download language servers
 {
         'williamboman/mason.nvim',
-        enabled = true,
-        lazy = true,
-        cmd = "Mason",
-        build = ":MasonUpdate",
-        opts = {},
+        cond = true,
+        cmd = 'Mason',
+        build = ':MasonUpdate',
+        opts = {}
 },
 
-
+-- lsp config integration
 {
         'williamboman/mason-lspconfig.nvim',
-        enabled = true,
-        lazy = false,
+        cond = true,
         opts = {
                 ensure_installed = {
-                        "lua_ls",
-                        "bashls",
-                        "clangd",
-                        "marksman",
-                        "cssls",
-                        "html",
+                        'lua_ls',
+                        'bashls',
+                        'clangd',
+                        'marksman',
+                        'cssls',
+                        'html'
                 }
-        },
+        }
 },
 
+-- base lsp configurations
 {
         'neovim/nvim-lspconfig',
-        enabled = true,
-        lazy = false,
-        keys = {
-                {mode = 'n','ga',vim.lsp.buf.code_action,desc = 'LSP code action',},
-                {mode = 'n','gd',vim.lsp.buf.definition,desc = 'LSP definition',},
-                {mode = 'n','gr',vim.lsp.buf.references,desc = 'LSP references',},
-                {mode = 'n','<leader>lr',vim.lsp.buf.rename,desc = 'LSP rename',},
-        },
+        cond = true,
         opts = {},
         config = function()
                 vim.lsp.enable('lua_ls')
@@ -44,7 +37,7 @@ return {
                 vim.lsp.enable('marksman')
                 vim.lsp.enable('cssls')
                 vim.lsp.enable('html')
-        end,
-},
+        end
+}
 
 }

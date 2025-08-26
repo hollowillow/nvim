@@ -1,19 +1,24 @@
 return {
 
 {
-        "folke/zen-mode.nvim",
-        enabled = true,
-        lazy = true,
-        cmd = 'ZenMode',
-        keys = {{mode = 'n','<leader>z','<cmd>ZenMode<cr>',desc = 'ZenMode',},},
-        -- opts = {twilight = {enabled = true},},
-},
-
--- optional dependencies
-{
         'folke/twilight.nvim',
-        enabled = true,
-        lazy = true,
-},
+        cond = true,
+        cmd = 'Twilight',
+        keys = {
+                {'<leader>z','<cmd>Twilight<cr>',desc='Twilight'}
+        }
+}, -- dim text around cursor
+
+{
+        "folke/zen-mode.nvim",
+        cond = true,
+        cmd = 'ZenMode',
+        opts = {
+                twilight = {enabled = true}
+        },
+        keys = {
+                { '<leader>zz', '<cmd>ZenMode<cr>', desc='ZenMode'}
+        }
+} -- full screen centralized buffer + twilight
 
 }

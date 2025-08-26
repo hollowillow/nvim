@@ -1,26 +1,25 @@
 return {
 
+-- syntax parsing and highlighting
 {
-        "nvim-treesitter/nvim-treesitter",
-        enabled = true,
-        lazy = false,
-        build = ":TSUpdate",
-        keys = { {mode = 'n', "<c-space>", desc = "Increment Selection"}, {mode = 'x', "<bs>", desc = "Decrement Selection",}, },
+        'nvim-treesitter/nvim-treesitter',
+        cond = true,
+        build = ':TSUpdate',
         opts = {
-                highlight = { enable = true,},
-                indent = { enable = true,},
+                highlight = {enable = true},
+                indent = {enable = true},
                 ensure_installed = {
-                        "bash",
-                        "c",
-                        "diff",
-                        "html",
-                        "markdown",
-                        "markdown_inline",
-                        "lua",
-                        "printf",
-                        "regex"
-                },
-        },
-},
+                        'bash',
+                        'c',
+                        'diff',
+                        'html',
+                        'markdown',
+                        'markdown_inline',
+                        'lua',
+                        'printf',
+                        'regex'
+                }
+        }
+}
 
 }
