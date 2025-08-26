@@ -1,3 +1,4 @@
+-- custom wordcount module
 local function get_wordcount()
   if vim.fn.mode():find("[vV]") then
     word_count = vim.fn.wordcount().visual_words
@@ -13,11 +14,13 @@ end
 
 return {
 
+-- fancy status line
 {
         "nvim-lualine/lualine.nvim",
-        enable = true,
-        lazy = false,
+        cond = true,
         opts = {
+                component_separators = nil,
+                section_separators = nil,
                 sections = {
                         lualine_a = {'mode'},
                         lualine_b = {'branch', 'diff', 'diagnostics'},
@@ -30,9 +33,9 @@ return {
                         'lazy',
                         'mason',
                         'man',
-                        'oil',
+                        'oil'
                 }
-        },
-},
+        }
+}
 
 }

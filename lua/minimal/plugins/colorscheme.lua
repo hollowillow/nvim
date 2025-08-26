@@ -1,7 +1,14 @@
-return {{
+return {
+
+-- colorscheme
+{
         'sainnhe/gruvbox-material',
-        enabled = true,
-        lazy = false,
+        cond = true,
         priority = 1000,
-        config = function () vim.g.gruvbox_material_enable_italic = true vim.cmd.colorscheme('gruvbox-material') end,
-},}
+        init = function ()
+                vim.g.gruvbox_material_enable_italic = true
+                vim.cmd.colorscheme('gruvbox-material')
+        end
+}
+
+}
