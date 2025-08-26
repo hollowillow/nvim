@@ -3,6 +3,7 @@ require("minimal.config.options")
 require("minimal.config.keymaps")
 require("minimal.config.lazy")
 require("minimal.config.autocmds")
+require("minimal.config.functions")
 require("minimal.config.registers")
 
 -- old config
