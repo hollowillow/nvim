@@ -19,8 +19,6 @@ return {
         "nvim-lualine/lualine.nvim",
         cond = true,
         opts = {
-                component_separators = nil,
-                section_separators = nil,
                 sections = {
                         lualine_a = {'mode'},
                         lualine_b = {'branch', 'diff', 'diagnostics'},
