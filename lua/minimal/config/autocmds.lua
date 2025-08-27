@@ -28,3 +28,25 @@ vim.api.nvim_create_autocmd('InsertLeave', {
                 vim.o.relativenumber = true
         end,
 })
+
+-- dynamic windows
+vim.o.splitbelow = true
+vim.o.splitright = true
+vim.api.nvim_create_augroup('DynamicWindows', { clear = true })
+vim.api.nvim_create_autocmd('BufWinEnter',{
+        group = 'DynamicWindows',
+        callback = function()
+                if vim.o.filetype == 'help' then
+                        vim.cmd.wincmd('K')
+                end
+        end
+})
+
+vim.api.nvim_create_autocmd('WinResized',{
+        group = 'DynamicWindows',
+        callback = function()
+                if vim.o.filetype == 'query' then
+                        vim.cmd("vertical resize 60")
+                end
+        end
+})
