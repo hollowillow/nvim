@@ -22,6 +22,3 @@ vim.o.termguicolors = true
 vim.o.colorcolumn = "80"
 
 vim.o.clipboard = "unnamedplus"
-
-vim.o.splitbelow = true
-vim.o.splitright = true
