@@ -19,6 +19,4 @@ vim.g.mapleader = " "
 
 vim.o.termguicolors = true
 
-vim.o.colorcolumn = "80"
-
 vim.o.clipboard = "unnamedplus"
