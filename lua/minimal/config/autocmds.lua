@@ -50,3 +50,60 @@ vim.api.nvim_create_autocmd('WinResized',{
                 end
         end
 })
+
+-- dynamic colorcolumn
+local last_col = -1
+local last_colorcolumn_state = nil
+
+-- colorcolumn for specific filetypes
+-- set to '' to disable completely
+local filetype_colorcolumn = {
+        text = '',
+        markdown = '80',
+        rust = '100',
+}
+local default_colorcolumn = '80'
+
+vim.api.nvim_create_augroup('DynamicColorcolumn', { clear = true })
+vim.api.nvim_create_autocmd({'CursorMoved', 'CursorMovedI'},{
+        group = 'DynamicColorcolumn',
+        callback = function()
+                -- check per filetype settings
+                -- exit early if colorcolumn is disabled for filetype
+                local target_colorcolumn = filetype_colorcolumn[vim.o.filetype] or default_colorcolumn
+                if target_colorcolumn == '' then
+                        return
+                end
+
+                -- get cursor column
+                -- exit early if it hasn't changed
+                local col = vim.api.nvim_win_get_cursor(0)[2]
+                if col == last_col then
+                        return
+                end
+
+                -- trigger colorcolumn n characters before set value
+                -- note: colorcolun is 0 indexed so we compare with -1
+                local trigger_col = tonumber(target_colorcolumn) - 10
+                local should_show_colorcolumn = col >= (trigger_col - 1)
+
+                -- update if state changed
+                if should_show_colorcolumn ~= last_colorcolumn_state then
+                        if should_show_colorcolumn then
+                                vim.o.colorcolumn = target_colorcolumn
+                        else
+                                vim.o.colorcolumn = ''
+                        end
+                        last_colorcolumn_state = should_show_colorcolumn
+                end
+        end
+})
+
+-- reset cache on filetype changes
+vim.api.nvim_create_autocmd('FileType',{
+        group = 'DynamicColorcolumn',
+        callback = function()
+                last_col = -1
+                last_colorcolumn_state = nil
+        end
+})
