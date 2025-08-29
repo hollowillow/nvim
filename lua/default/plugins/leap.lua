@@ -1,13 +1,18 @@
 return {
 
+-- jump anywhere on screen
 {
         'ggandor/leap.nvim',
-        enabled = true,
-        lazy = true,
-        opts = { case_sensitive = false, },
+        cond = true,
         keys = {
-                {mode = { 'n', 'x', 'o', },'<leader>s', '<Plug>(leap-anywhere)',desc = 'Leap anywhere'},
+                {
+                        mode={'n','x','o'},
+                        '<leader>l',
+                        '<Plug>(leap-anywhere)',
+                        desc='Leap anywhere'
+                },
         },
+        opts = {case_sensitive = false},
 }
 
 }
