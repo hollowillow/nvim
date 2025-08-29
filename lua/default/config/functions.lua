@@ -1,40 +1,31 @@
-function markdown_wordcount()
-    if vim.bo.filetype == "markdown" then
-            -- Get the content of the current buffer
-            local lines = vim.fn.getline(1, '$')
-            
-            -- Find the start and end of the YAML front matter
-            local start_line = 0
-            local end_line = 0
+-- toggle boolean values in line
 
-            for i, line in ipairs(lines) do
-                if line:match('^%s*---%s*$') then
-                    if start_line == 0 then
-                        start_line = i  -- Found the start of YAML front matter
-                    else
-                        end_line = i  -- Found the end of YAML front matter
-                        break
-                    end
-                end
-            end
+function EscapePattern(str)
+    return str:gsub("([%.%-%+%*%?%[%]%^%$%(%)%{%}|%\\])", "%%%1")
+end
 
-            -- If front matter exists, adjust the lines to consider for word count
-            if start_line > 0 and end_line > 0 then
-                -- Count words only in the content after the front matter
-                lines = vim.fn.getline(end_line + 1, '$')
-            end
+function ToggleBool(str1, str2)
+    local current_line = vim.api.nvim_get_current_line()
+    local escaped_str1 = EscapePattern(str1)
+    local escaped_str2 = EscapePattern(str2)
 
-            -- Concatenate lines and count words
-            local text = table.concat(lines, " ")
-            local word_count = 0
-
-            -- Simple word counting logic (based on spaces)
-            for word in text:gmatch('%S+') do
-                word_count = word_count + 1
-            end
-
-            return "Words: " .. word_count
-    else
-            return ''
+    if current_line:find(escaped_str1) then
+        local new_line = current_line:gsub(escaped_str1, escaped_str2)
+        vim.api.nvim_set_current_line(new_line)
+    elseif current_line:find(escaped_str2) then
+        local new_line = current_line:gsub(escaped_str2, escaped_str1)
+        vim.api.nvim_set_current_line(new_line)
     end
 end
+
+vim.api.nvim_create_user_command(
+        'ToggleBool',
+        function(opts)
+                if #opts.fargs == 2 then
+                        ToggleBool(opts.fargs[1], opts.fargs[2])
+                else
+                        print("Usage: :ToggleBool <string1> <string2>")
+                end
+        end,
+        { nargs = '*', desc = 'Toggle between two strings' }
+)

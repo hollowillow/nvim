@@ -1,11 +1,18 @@
 return {
 
-{'echasnovski/mini.ai', enable = true, version = '*', opts = {},},
-{'echasnovski/mini.pairs', enable = true, version = '*', opts = {},},
-{'echasnovski/mini.splitjoin', enable = true, version = '*', opts = {},},
-{'echasnovski/mini.surround', enable = true, version = '*', opts = {},},
-{'echasnovski/mini.completion', enable = true, version = '*', opts = {},},
-{'echasnovski/mini.indentscope', enable = true, version = '*', opts = {},},
-{'echasnovski/mini.comment', enable = true, version = '*', opts = {},},
+-- extended around/inside
+{'echasnovski/mini.ai', cond = true, version = '*', opts = {}},
+
+-- extended bracket motions
+{'echasnovski/mini.bracketed', cond = true, version = '*', opts = {}},
+
+-- extended surround
+{'echasnovski/mini.surround', cond = true, version = '*', opts = {}},
+
+-- auto pairs
+{'echasnovski/mini.pairs', cond = true, version = '*', opts = {}},
+
+-- split nested structures
+{'echasnovski/mini.splitjoin', cond = true, version = '*', opts = {}}
 
 }
