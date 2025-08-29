@@ -3,7 +3,6 @@ return {
 -- jump anywhere on screen
 {
         'ggandor/leap.nvim',
-        cond = true,
         keys = {
                 {
                         mode={'n','x','o'},
