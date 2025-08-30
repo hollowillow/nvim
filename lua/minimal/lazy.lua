@@ -22,7 +22,7 @@ require("lazy").setup({
                 {'williamboman/mason.nvim',build=':MasonUpdate'}, -- downloading lsps
                 { import = 'plugins.colorscheme' }, -- colorschemes
                 { import = 'plugins.oil' }, -- file explorer
-                { import = 'plugins.fzf' }, -- fuzzy menu
+                { import = 'plugins.pick' }, -- fuzzy menu
                 { import = 'plugins.arrow' }, -- project specific marks
                 { import = 'plugins.leap' }, -- jump anywhere in file
                 { import = 'plugins.mini' }, -- general quality of life
