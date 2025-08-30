@@ -19,6 +19,7 @@ vim.o.number = true -- show line numbers
 vim.o.relativenumber = true -- line numbers relative to cursor
 vim.o.splitbelow = true -- open horizontal splits bellow
 vim.o.splitright = true -- open vertical splits to the right
+vim.o.winborder = 'rounded' -- border for all floating windows
 
 -- tabs and indentation
 vim.o.tabstop = 8 -- number of spaces for a tab
@@ -26,7 +27,7 @@ vim.o.softtabstop = 8 -- number of spaces for a tab when editing
 vim.o.shiftwidth = 8 -- number of spaces for autoindent
 vim.o.expandtab = true -- expand tab to spaces
 vim.o.autoindent = true -- enable indent inheritance
-vim.o.listchars = 'trail:•,extends:#,nbsp:.,precedes:❮,extends:❯,tab:› ,leadmultispace:|       '
+vim.o.listchars = 'trail:•,extends:#,nbsp:.,precedes:❮,extends:❯,tab:› ,leadmultispace:|       ,eol:󰌑'
 vim.o.list = true -- show defined whitespace characters
 
 -- other

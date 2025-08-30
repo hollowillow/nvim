@@ -19,6 +19,7 @@ require("lazy").setup({
                 {'folke/which-key.nvim'}, -- keymap guide
                 {'nvim-tree/nvim-web-devicons'}, -- icons
                 {'christoomey/vim-tmux-navigator'}, -- tmux integration
+                {'williamboman/mason.nvim',build=':MasonUpdate'}, -- downloading lsps
                 { import = 'plugins.colorscheme' }, -- colorschemes
                 { import = 'plugins.oil' }, -- file explorer
                 { import = 'plugins.fzf' }, -- fuzzy menu
@@ -28,7 +29,6 @@ require("lazy").setup({
                 { import = 'plugins.zen' }, -- focus mode
                 { import = 'plugins.git' }, -- focus mode
                 { import = 'plugins.lualine' }, -- status line
-                { import = 'plugins.lsp' }, -- language server
                 { import = 'plugins.treesitter' }, -- syntax parsing
         },
   checker = { enabled = true },
