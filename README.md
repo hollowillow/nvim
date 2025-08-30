@@ -1,55 +1,30 @@
-# MY NEOVIM CONFIGURATION
+# INTRODUCTION
+The following is my ever changing ever expanding neovim configuration.
 
-![img](./data/showcase/nvim-rice1.png)
-![img](./data/showcase/nvim-rice2.png)
+## PHILOSOPHY
+When I first started using neovim, I very quickly got interested in the idea of configurating my code editor.
+Fair to say ever since that day I've gotten barely any work done because whenever my config starts to feel a bit too
+stable, I then spend a week changing completely everything.
 
-## List of plugins
-### UI
-- [folke/snacks.nvim](https://github.com/folke/snacks.nvim)
-- [akinsho/bufferline](https://github.com/akinsho/bufferline.nvim)
-- [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
-- [sainnhe/gruvbox-material](https://github.com/sainnhe/gruvbox-material)
-- [folke/noice.nvim](https://github.com/folke/noice.nvim)
-    - [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
-    - [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
-- [nvim-tree/nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
+I suppose I do it for the love of the game, but well what can you do?
 
-### TEXT EDITING
-- [echasnovski/mini.ai](https://github.com/echasnovski/mini.ai)
-- [echasnovski/mini.pairs](https://github.com/echasnovski/mini.pairs)
-- [echasnovski/mini.splitjoin](https://github.com/echasnovski/mini.splitjoin)
-- [echasnovski/mini.surround](https://github.com/echasnovski/mini.surround)
-- [echasnovski/mini.indentscope](https://github.com/echasnovski/mini.indentscope)
-- [echasnovski/mini.comment](https://github.com/echasnovski/mini.comment)
+It's simple really, make it suck less.
 
-### WORKLFLOW
-- [stevearc/oil.nvim](https://github.com/stevearc/oil.nvim)
-- [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-    - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
-    - [nvim-telescope/telescope-symbols.nvim](https://github.com/nvim-telescope/telescope-symbols.nvim)
-- [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
-    - [folke/twilight.nvim](https://github.com/folke/twilight.nvim)
-- [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon/tree/harpoon2)
-- [ggandor/leap.nvim](https://github.com/ggandor/leap.nvim)
+The current goal of my configuration is to get out of my way as much as possible, allow as much autonomy as possible
+and last but not least be simple enough to where even my monkey brain can comprehend it.
 
-### TREESITTER, LSP, COMPLETION
-- [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-- [williamboman/mason.nvim](https://github.com/williamboman/mason.nvim)
-    - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
-    - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-- [echasnovski/mini.completion](https://github.com/echasnovski/mini.completion)
+## STRUCTURE
+The bulk of the actual configuration is located in `lua/minimal/`. In there you will find multiple 'modules', or so I
+like to think of them, which define my options, keybinds and more. There's two modules I wanna touch on more closely.
 
-### GIT INTEGRATION
-- [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
-- [airblade/vim-gitgutter](https://github.com/airblade/vim-gitgutter)
+The first one is the lsp module. For the longest time I've been confused by language servers and how to even
+get them working, but since neovim 0.11 came out the builtin lsp support has gotten really good. In this module is a
+simple setup for autocompletion, line diagnostics, and a table to enable any language servers. The specific lsp configs
+are then located in `lsp/`. No need for nvim-lspconfig, you don't even arguably need Mason but I still use it.
 
-### HABIT BUILDING
-- [ThePrimeagen/vim-be-good](https://github.com/ThePrimeagen/vim-be-good)
-- [m4xshen/hardtime.nvim](https://github.com/m4xshen/hardtime.nvim)
-
-### MARKDOWN EDITING
-- [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
-
-## OTHER DEPENDENCIES
-- [TheZoraiz/ascii-image-converter](https://github.com/TheZoraiz/ascii-image-converter)
-    - required for dashboard ASCII art
+The second is the plugins module. I have a sort of love hate relationship with plugins. I love everything they have to
+offer, and then watch my editor crumble before me with the amount of steroids I have willingly injected into it.
+I'm not saying plugins are bad, they offer a lot of functionality, and especially for people with less than a fulltime
+job amount of hours for configuring neovim. That said, many times I've installed a plugin to realise I don't need the 
+majority of what it has to offer for my usecase. Nowadays I try to limit my plugins to what I consider essentials.
+This means for the most part getting rid of fancy visuals and simply focusing on my workflow.
