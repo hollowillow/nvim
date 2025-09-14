@@ -51,23 +51,24 @@ vim.api.nvim_create_autocmd({'InsertEnter', 'InsertLeave'}, {
     end,
 })
 
--- HIGHLIGHT TRAILING SPACES IN NORMAL MODE
--- get the error color for your colorscheme
-local trail_highlight = vim.fn.synIDattr(vim.fn.hlID('Error'), 'fg')
-
--- set the regex pattern for trailing spaces
-vim.fn.matchadd('TrailingWhitespace', '\\s\\+$')
-
--- always enable when entering neovim
--- dynamically disable when in insert mode
-vim.api.nvim_create_augroup('HighlightTrail', { clear = true })
-vim.api.nvim_create_autocmd({'InsertEnter','InsertLeave','VimEnter'},{
-        group = 'HighlightTrail',
-        callback = function(event)
-                if (event.event == 'InsertEnter') == true then
-                        vim.api.nvim_set_hl(0, 'TrailingWhitespace', { bg = 'NONE' })
-                else
-                        vim.api.nvim_set_hl(0, 'TrailingWhitespace', { bg = trail_highlight })
-                end
-        end
-})
+-- -- HIGHLIGHT TRAILING SPACES IN NORMAL MODE
+-- -- get the error color for your colorscheme
+-- local trail_highlight = vim.fn.synIDattr(vim.fn.hlID('Error'), 'fg')
+--
+-- -- set the regex pattern for trailing spaces
+-- vim.fn.matchadd('TrailingWhitespace', '\\s\\+$')
+--
+-- -- always enable when entering neovim
+-- -- dynamically disable when in insert mode
+-- vim.api.nvim_create_augroup('HighlightTrail', { clear = true })
+-- vim.api.nvim_create_autocmd({'InsertEnter','InsertLeave','VimEnter'},{
+--         group = 'HighlightTrail',
+--         callback = function(event)
+--                 -- highlight when not in insert mode
+--                 if (event.event == 'InsertEnter') == true then
+--                         vim.api.nvim_set_hl(0, 'TrailingWhitespace', { bg = 'NONE' })
+--                 else
+--                         vim.api.nvim_set_hl(0, 'TrailingWhitespace', { bg = trail_highlight })
+--                 end
+--         end
+-- })

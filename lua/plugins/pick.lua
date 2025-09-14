@@ -2,7 +2,7 @@ return {
 
 -- basic pickers
 {
-        'echasnovski/mini.pick',
+        'nvim-mini/mini.pick',
         version = '*',
         init = function() vim.ui.select = require('mini.pick').ui_select end,
         keys = {
@@ -31,7 +31,7 @@ return {
 
 -- extra pickers
 {
-        'echasnovski/mini.extra',
+        'nvim-mini/mini.extra',
         cond = true,
         version = '*',
         keys = {
