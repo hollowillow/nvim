@@ -8,6 +8,7 @@ vim.lsp.enable({
         'yamlls',
         'clangd',
         'rust_analyzer',
+        'pyright',
 })
 
 -- builtin autocomplete
