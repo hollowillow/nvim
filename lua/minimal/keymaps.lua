@@ -23,9 +23,17 @@ keymap('n', '<C-u>', '<C-u>zz', { desc = 'Half page up' })
 keymap('n', '<C-d>', '<C-d>zz', { desc = 'Half page down' })
 
 -- save session
-local save_dir = "~/.local/share/nvim/sessions"
-keymap('n', '<leader>s', '<cmd>mksession! ' .. save_dir .. '/default<cr>', { desc = 'Save default sesion' })
-keymap('n', '<leader>ss', '<cmd>source ' .. save_dir .. '/default<cr>', { desc = 'Source default sesion' })
+-- local save_dir = "~/.local/share/nvim/sessions"
+-- keymap('n', '<leader>s', '<cmd>mksession! ' .. save_dir .. '/default<cr>', { desc = 'Save default sesion' })
+-- keymap('n', '<leader>ss', '<cmd>source ' .. save_dir .. '/default<cr>', { desc = 'Source default sesion' })
+
+-- -- helix inspired
+-- keymap('n', 'gh', '^', { desc = 'Go to beginning of line' })
+-- keymap('n', 'gl', '$', { desc = 'Go to end of line' })
+
+-- quickfix
+keymap('n', '<leader>q', '<cmd>copen<cr>', { desc = 'Open quickfix menu' })
+keymap('n', '<leader>Q', '<cmd>cclose<cr>', { desc = 'Close quickfix menu' })
 
 -- other
 keymap("t", "<Esc>", "<C-\\><C-N>") -- exit terminal mode

@@ -16,20 +16,28 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
         spec = {
-                {'folke/which-key.nvim'}, -- keymap guide
-                {'nvim-tree/nvim-web-devicons'}, -- icons
-                {'christoomey/vim-tmux-navigator'}, -- tmux integration
-                {'williamboman/mason.nvim',build=':MasonUpdate'}, -- downloading lsps
+                -- {'williamboman/mason.nvim',build=':MasonUpdate'}, -- downloading lsps
                 { import = 'plugins.colorscheme' }, -- colorschemes
-                { import = 'plugins.oil' }, -- file explorer
-                { import = 'plugins.pick' }, -- fuzzy menu
-                { import = 'plugins.arrow' }, -- project specific marks
-                { import = 'plugins.leap' }, -- jump anywhere in file
+                -- { import = 'plugins.pick' }, -- fuzzy menu
+                -- { import = 'plugins.leap' }, -- jump anywhere in file
                 { import = 'plugins.mini' }, -- general quality of life
                 { import = 'plugins.zen' }, -- focus mode
                 { import = 'plugins.git' }, -- focus mode
                 { import = 'plugins.lualine' }, -- status line
                 { import = 'plugins.treesitter' }, -- syntax parsing
+                -- { import = 'plugins.fzf' }, -- syntax parsing
+                -- { import = 'plugins.harpoon' }, -- fzf
+                -- { import = 'plugins.oil' }, -- file explorer
+                --- NEW SETUP ---
+                {'folke/which-key.nvim'}, -- keymap guide
+                {'nvim-tree/nvim-web-devicons'}, -- icons
+                {'christoomey/vim-tmux-navigator'}, -- tmux integration
+                { import = 'pluginz.telescope' }, -- fuzzy file picker
+                { import = 'pluginz.grapple' }, -- project based marks
+                { import = 'pluginz.flash' }, -- fast file navigation
+                { import = 'pluginz.oil' }, -- buffer based file explorer
+                { import = 'pluginz.quicker' }, -- buffer based quickfix
+                { import = 'pluginz.conform' }, -- buffer based quickfix
         },
   checker = { enabled = true },
 })

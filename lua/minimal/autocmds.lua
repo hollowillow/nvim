@@ -1,25 +1,66 @@
+-- Array of file names indicating root directory. Modify to your liking.
+local root_names = { '.git', 'Makefile' }
+
+-- Cache to use for speed up (at cost of possibly outdated results)
+local root_cache = {}
+
+local set_root = function()
+  -- Get directory path to start search from
+  local path = vim.api.nvim_buf_get_name(0)
+  if path == '' then return end
+  path = vim.fs.dirname(path)
+
+  -- Try cache and resort to searching upward for root directory
+  local root = root_cache[path]
+  if root == nil then
+    local root_file = vim.fs.find(root_names, { path = path, upward = true })[1]
+    if root_file == nil then return end
+    root = vim.fs.dirname(root_file)
+    root_cache[path] = root
+  end
+
+  -- Set current directory
+  vim.fn.chdir(root)
+
+  -- reset harpoon
+  -- require('harpoon.data').Data:new(harpoon.config)
+end
+
+local root_augroup = vim.api.nvim_create_augroup('MyAutoRoot', {})
+vim.api.nvim_create_autocmd('BufEnter', { group = root_augroup, callback = set_root })
+
+vim.api.nvim_create_autocmd("DirChanged", {
+    pattern = "global",
+    callback = function()
+        -- this is the only way i found to force harpoon to reread data from the disk rather
+        -- than using what's in memory
+        harpoon.data = require("harpoon.data").Data:new(harpoon.config)
+    end,
+})
+
+--
 -- AUTOMATICALLY CHANGE CWD TO PROJECT ROOT
 -- project root is determined by the following array of files
-local root_names = {'.git', 'Makefile'}
+-- local root_names = {'.git', 'Makefile'}
 
-vim.api.nvim_create_augroup('AutoRoot',{clear = true})
-vim.api.nvim_create_autocmd('BufEnter',{
-        group = 'AutoRoot',
-        callback = function()
-                -- get directory path to start search from
-                local path = vim.api.nvim_buf_get_name(0)
-                if path == '' then return end -- exit early on empty buffer
-                path = vim.fs.dirname(path)
-
-                -- search upward for root directory
-                local root_file = vim.fs.find(root_names,{path=path,upward=true})[1]
-                if root_file == nil then return end -- exit early if no root file
-
-                -- set current directory
-                local root = vim.fs.dirname(root_file)
-                vim.fn.chdir(root)
-        end
-})
+-- vim.api.nvim_create_augroup('AutoRoot',{clear = true})
+-- vim.api.nvim_create_autocmd('VimEnter','BufEnter',{
+--         group = 'AutoRoot',
+--         callback = function()
+--                 -- get directory path to start search from
+--                 local path = vim.api.nvim_buf_get_name(0)
+--                 if path == '' then return end -- exit early on empty buffer
+--                 path = vim.fs.dirname(path)
+--
+--                 -- search upward for root directory
+--                 local root_file = vim.fs.find(root_names,{path=path,upward=true})[1]
+--                 if root_file == nil then return end -- exit early if no root file
+--
+--                 -- set current directory
+--                 local root = vim.fs.dirname(root_file)
+--                 vim.fn.chdir(root)
+--         end
+-- })
 
 -- AUTOMATICALLY SET COLORCOLUMN BASED ON FILETYPE
 -- ccolumn is determined by the following table, use '' to disable
