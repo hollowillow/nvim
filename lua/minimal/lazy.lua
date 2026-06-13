@@ -37,7 +37,6 @@ require("lazy").setup({
                 { import = 'pluginz.flash' }, -- fast file navigation
                 { import = 'pluginz.oil' }, -- buffer based file explorer
                 { import = 'pluginz.quicker' }, -- buffer based quickfix
-                { import = 'pluginz.conform' }, -- buffer based quickfix
         },
   checker = { enabled = true },
 })
