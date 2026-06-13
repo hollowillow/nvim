@@ -1,12 +1,11 @@
--- https://github.com/bash-lsp/bash-language-server
-
+--- https://github.com/bash-lsp/bash-language-server
 return {
-        cmd = { 'bash-language-server', 'start' },
-        settings = {
-                bashIde = {
-                        globPattern = vim.env.GLOB_PATTERN or '*@(.sh|.inc|.bash|.command)',
-                },
+    cmd = { "bash-language-server", "start" },
+    filetypes = { "bash", "sh" },
+    root_markers = { ".git" },
+    settings = {
+        bashIde = {
+            globPattern = vim.env.GLOB_PATTERN or "*@(.sh|.inc|.bash|.command)",
         },
-        filetypes = { 'bash', 'sh' },
-        root_markers = { '.git' },
+    },
 }
