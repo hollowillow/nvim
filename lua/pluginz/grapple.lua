@@ -1,32 +1,29 @@
 return {
     {
-        'cbochs/grapple.nvim',
+        "cbochs/grapple.nvim",
         config = function()
             -- config
-            require('grapple').setup {
-                scope = 'git',
-                quick_select = '',
-                style = 'relative',
+            require("grapple").setup({
+                scope = "git",
+                quick_select = "",
+                style = "relative",
                 status = true,
                 with_opts = {
-                    footer = '',
-                }
-            }
+                    footer = "",
+                },
+            })
 
             -- keybinds
-            local builtin = require('grapple')
+            local builtin = require("grapple")
             local keys = vim.keymap.set
 
-            keys('n', '<leader>G', builtin.toggle, { desc = 'Grapple toggle' })
-            keys('n', '<leader>gg', builtin.toggle_tags, { desc = 'Grapple toggle tags' })
+            keys("n", "<leader>G", builtin.toggle, { desc = "Grapple toggle" })
+            keys("n", "<leader>gg", builtin.toggle_tags, { desc = "Grapple toggle tags" })
             local mapping = { a = 1, s = 2, d = 3, f = 4 }
             for key, id in pairs(mapping) do
-                keys(
-                    'n',
-                    '<leader>g' .. key,
-                    function() builtin.select({ index = id }) end,
-                    { desc = 'Grapple ' .. id }
-                )
+                keys("n", "<leader>g" .. key, function()
+                    builtin.select({ index = id })
+                end, { desc = "Grapple " .. id })
             end
 
             -- telescope integration

@@ -12,10 +12,12 @@
     in
       pkgs.mkShell {
         packages = with pkgs; [
+          lua
           lua-language-server
           stylua
         ];
         shellHook = ''
+          lua -v
           printf 'lua-language-server '; lua-language-server --version
           stylua --version
         '';

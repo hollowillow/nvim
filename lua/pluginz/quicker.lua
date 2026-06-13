@@ -1,9 +1,9 @@
 return {
     {
-        'stevearc/quicker.nvim',
-        ft = 'qf',
+        "stevearc/quicker.nvim",
+        ft = "qf",
         config = function()
-            require('quicker').setup {
+            require("quicker").setup({
                 opts = {
                     relativenumber = true,
                 },
@@ -23,7 +23,7 @@ return {
                         desc = "Collapse quickfix context",
                     },
                 },
-            }
+            })
         end,
     },
 }

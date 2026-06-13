@@ -28,14 +28,13 @@ vim.o.shiftwidth = 4 -- number of spaces for autoindent
 vim.o.expandtab = true -- expand tab to spaces
 vim.o.autoindent = true -- enable indent inheritance
 vim.opt.listchars = {
-        trail = '•',
-        extends = '#',
-        nbsp = '.',
-        precedes = '❮',
-        extends = '❯',
-        tab = '› ',
-        leadmultispace = '|   ',
-        eol = '󰌑'
+    trail = '•',
+    nbsp = '.',
+    precedes = '❮',
+    extends = '❯',
+    tab = '› ',
+    leadmultispace = '|   ',
+    eol = '󰌑'
 }
 vim.o.list = true -- show defined whitespace characters
 

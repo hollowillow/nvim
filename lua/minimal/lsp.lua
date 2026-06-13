@@ -4,15 +4,6 @@ vim.lsp.enable({
     "lua_ls",
     "stylua",
     "bashls",
-
-    "pyright",
-
-    "marksman",
-    "cssls",
-    "html",
-    "yamlls",
-    "clangd",
-    "rust_analyzer",
 })
 
 -- builtin autocomplete

@@ -30,12 +30,16 @@ return {
                         }
                 },
                 fzf_opts = {
-                        ["--style"] = "full",
+                        -- ["--style"] = "full",
                         ["--no-scrollbar"] = true,
                         ["--border"] = "rounded",
                         ["--preview-label-pos"] = "bottom",
-                        ["--tmux"] = "center,80%,60%"
-                }
+                        ["--tmux"] = "center,80%,60%",
+                },
+                files = {
+                    fd_opts = [[--hidden --color=never --type f --type l --exclude .git --exclude .jj]],
+                    hidden = true,
+                },
         }
 }
 
