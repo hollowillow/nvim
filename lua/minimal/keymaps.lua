@@ -38,3 +38,8 @@ keymap('n', '<leader>Q', '<cmd>cclose<cr>', { desc = 'Close quickfix menu' })
 -- other
 keymap("t", "<Esc>", "<C-\\><C-N>") -- exit terminal mode
 keymap("n", "grd", "<cmd>lua vim.lsp.buf.definition()<CR>") -- go to definition
+
+-- lsp
+keymap('n', 'grf', function()
+    vim.lsp.buf.format({ async = true })
+end, { desc = 'Format buffer' })
